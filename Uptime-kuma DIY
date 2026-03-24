@@ -1,0 +1,62 @@
+/* Uptime Kuma 定制CSS */
+/* 第一部分：新渐变背景 */
+:root {
+  --bg-gradient: linear-gradient(135deg, #EBEBEB 0%, #d9e7ff 100%);
+}
+body {
+  background: var(--bg-gradient) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  min-height: 100vh;
+}
+
+/* 第二部分：将监控项列表改为两列网格布局 */
+.monitor-list .monitor-list {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 1rem !important;
+}
+
+/* 响应式设计：在平板/手机等窄屏幕上自动变为一列 */
+@media screen and (max-width: 768px) {
+  .monitor-list .monitor-list {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 第三部分：底部布局调整 */
+footer {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 1rem !important;
+  gap: 0.5rem !important;
+}
+
+/* 时间信息容器 - 横向排列 */
+footer .footer-bottom,
+footer div[class*="footer"],
+footer > div {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+}
+
+/* 确保底部信息按顺序显示：版权在上，时间在下 */
+footer {
+  order: 1 !important;
+}
+/* 删除链接下划线 */
+a { text-decoration: none; }
+/*添加CSS连接渐变文字效果*/
+a {
+  background: linear-gradient(90deg, #FF0000, #FF00FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/*OK，就这个着吧，挺好看的哈*/
